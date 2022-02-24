@@ -1,0 +1,104 @@
+{
+  "name": "jackocoins-tron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --project ./",
+    "clean": "rm -rf dist/*",
+    "lint": "./node_modules/.bin/eslint",
+    "lint:fix": "./node_modules/.bin/eslint --fix",
+    "start": "set DEBUG=http:* && node ./dist/src/index.js",
+    "start:dev": "set DEBUG=http:* && nodemon src/index.ts",
+    "db:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "db:unmigrate": "./node_modules/.bin/sequelize db:migrate:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Jackocoins/Tron_network.git"
+  },
+  "author": "Samuel <ladaposamuel@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jackocoins/Tron_network/issues"
+  },
+  "homepage": "",
+  "dependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@babel/runtime": "^7.5.5",
+    "@hapi/joi": "^15.1.1",
+    "@sendgrid/mail": "^6.4.0",
+    "bcrypt": "^3.0.6",
+    "cors": "^2.8.5",
+    "datauri": "^2.0.0",
+    "debug": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mock-req-res": "^1.1.1",
+    "moment": "^2.24.0",
+    "morgan-body": "^2.4.7",
+    "multer": "^1.4.2",
+    "pg": "^8.5.1",
+    "sequelize": "^5.15.0",
+    "sequelize-cli": "^6.2.0",
+    "trim-request-body": "^1.0.1",
+    "trongrid": "^1.2.6",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.5.5",
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.37",
+    "babel-plugin-istanbul": "^5.2.0",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.0.6",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "express": "^4.17.1",
+    "husky": "^3.0.3",
+    "lint-staged": "^9.2.1",
+    "mocha": "^6.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "mongodb": "^3.6.3",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^1.19.1",
+    "nyc": "^14.1.1",
+    "sinon": "^7.4.1",
+    "sinon-chai": "^3.3.0",
+    "tronweb": "^3.2.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "src/test/**"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  }
+}
